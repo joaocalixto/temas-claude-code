@@ -1,0 +1,28 @@
+{
+  "name": "Rengoku",
+  "base": "dark",
+  "overrides": {
+    "claude": "#FF7A3D",
+    "claudeShimmer": "#FFB27A",
+    "text": "#F3E6DD",
+    "inactive": "#B09A91",
+    "subtle": "#4A3530",
+    "suggestion": "#FFB27A",
+    "permission": "#E8B04A",
+    "permissionShimmer": "#FFD48A",
+    "promptBorder": "#C2412F",
+    "promptBorderShimmer": "#E5624E",
+    "planMode": "#7DB4FF",
+    "autoAccept": "#C9729B",
+    "bashBorder": "#E8B04A",
+    "success": "#8FD694",
+    "error": "#FF6B6E",
+    "warning": "#FFC857",
+    "diffAdded": "#1E3A1F",
+    "diffRemoved": "#4A1916",
+    "diffAddedWord": "#2F5E30",
+    "diffRemovedWord": "#7A2620",
+    "userMessageBackground": "#2A1814",
+    "remember": "#E8B04A"
+  }
+}

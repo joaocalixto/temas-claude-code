@@ -1,0 +1,28 @@
+{
+  "name": "Lofi Cidades",
+  "base": "dark",
+  "overrides": {
+    "claude": "#FF9B73",
+    "claudeShimmer": "#FFC9A8",
+    "text": "#F4E9E2",
+    "inactive": "#BFAFB6",
+    "subtle": "#4D3D57",
+    "suggestion": "#FFC9A8",
+    "permission": "#FFD86B",
+    "permissionShimmer": "#FFE59A",
+    "promptBorder": "#E9A86A",
+    "promptBorderShimmer": "#F5C48F",
+    "planMode": "#8EC5FF",
+    "autoAccept": "#D9A6FF",
+    "bashBorder": "#FFD86B",
+    "success": "#A6E3A1",
+    "error": "#FF7A85",
+    "warning": "#F3B562",
+    "diffAdded": "#23402F",
+    "diffRemoved": "#4A2230",
+    "diffAddedWord": "#356047",
+    "diffRemovedWord": "#74334A",
+    "userMessageBackground": "#2B1F2A",
+    "remember": "#FFD86B"
+  }
+}

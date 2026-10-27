@@ -1,0 +1,28 @@
+{
+  "name": "Cidade Pixel",
+  "base": "dark",
+  "overrides": {
+    "claude": "#5EE6F0",
+    "claudeShimmer": "#9AF4FA",
+    "text": "#DDE6FF",
+    "inactive": "#9AA8CC",
+    "subtle": "#2A3A66",
+    "suggestion": "#FFD27A",
+    "permission": "#FFB547",
+    "permissionShimmer": "#FFD27A",
+    "promptBorder": "#3A7BD5",
+    "promptBorderShimmer": "#7FB0FF",
+    "planMode": "#B48CFF",
+    "autoAccept": "#FF8AA0",
+    "bashBorder": "#FFB547",
+    "success": "#7CF29A",
+    "error": "#FF6F8A",
+    "warning": "#FFE066",
+    "diffAdded": "#0F3B33",
+    "diffRemoved": "#3D1530",
+    "diffAddedWord": "#17604F",
+    "diffRemovedWord": "#6A2550",
+    "userMessageBackground": "#14213D",
+    "remember": "#FFB547"
+  }
+}
