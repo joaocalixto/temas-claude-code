@@ -98,7 +98,7 @@ Dentro do Claude Code:
 
 ## Ajustes
 
-- **Barra das abas igual às imagens:** em **iTerm2 → Settings → Appearance → General**, põe **Theme** em **Minimal**. A barra de cima fica com a cor escura do terminal e a aba com a cor do tema. É uma opção do iTerm2 inteiro, por isso o instalador não a muda por ti.
+- **Barra das abas igual às imagens:** em **iTerm2 → Settings → Appearance → General**, põe **Theme** em **Minimal**. Depois, em **Appearance → Tabs**, desliga **Stretch tabs to fill bar**. A barra de cima fica com a cor escura do terminal, e cada aba fica pequena, com a cor do tema. São opções do iTerm2 inteiro, por isso o instalador não as muda por ti.
 - **A barra Chat / Diff / Code Review** por baixo das abas é do modo de ecrã inteiro do Claude Code, não do tema.
 - **Fundo muito claro ou muito escuro:** em **iTerm2 → Settings → Profiles → (o perfil) → Window**, mexe no controlo **Blending**.
 - **Mudar o fundo padrão de um tema:** em `iterm2/temas-claude-code.json`, troca a linha `"Background Image Location"` desse perfil por outra imagem da pasta `imagens/`. Depois corre o `instalar.command` de novo.
