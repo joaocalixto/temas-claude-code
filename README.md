@@ -1,122 +1,136 @@
-# Temas para o Claude Code + iTerm2
+# Themes for Claude Code + iTerm2
 
-Três temas para quem usa o **Claude Code** no **iTerm2** (Mac): uma imagem de fundo na janela do terminal e cores a combinar, tanto no terminal como no Claude Code.
+**English** · [Português](README.pt.md)
 
-Vêm também dois comandos para usar dentro do Claude Code:
+Three themes for people who use **Claude Code** in **iTerm2** (Mac): a background image in the terminal window and matching colors, both in the terminal and in Claude Code.
 
-- **`/tema`** troca o tema inteiro (fundo e cores) sem fechar nada.
-- **`/fundo`** troca só a imagem de fundo.
+They also come with two commands you can use inside Claude Code:
 
-| Rengoku | Lofi Cidades | Cidade Pixel |
-|:---:|:---:|:---:|
-| ![Rengoku](docs/rengoku.jpg) | ![Lofi Cidades](docs/lofi-cidades.jpg) | ![Cidade Pixel](docs/cidade-pixel.jpg) |
-| Brasas, fumo e um samurai diante do fogo. Laranja quente. | Lisboa e cidades inventadas, do amanhecer à noite. Coral e amarelo. | Cidade em pixel art à noite, com um robozinho no telhado. Ciano e âmbar. |
+- **`/tema`** switches the whole theme (background and colors) without closing anything.
+- **`/fundo`** switches only the background image.
 
-São 37 fundos ao todo: 12 do Rengoku, 20 da Lofi Cidades e 5 da Cidade Pixel (um deles com o robozinho). Há também versões mais escuras de dois deles, usadas como fundo padrão.
+> The commands and the theme names are in Portuguese (*tema* = theme, *fundo* = background). They work the same for everyone.
 
-![Todos os fundos](docs/galeria.jpg)
+## What the terminal looks like
+
+### Rengoku
+Embers, smoke and a samurai facing the fire. Warm orange for Claude, gold for permission prompts.
+
+![The terminal with the Rengoku theme](docs/terminal-rengoku.jpg)
+
+### Lofi Cidades (Lofi Cities)
+Lisbon and made-up cities, from dawn to night. Coral for Claude, yellow for permission prompts.
+
+![The terminal with the Lofi Cidades theme](docs/terminal-lofi-cidades.jpg)
+
+### Cidade Pixel (Pixel City)
+A pixel-art city at night, with a little robot sitting on a rooftop. Cyan for Claude, amber for permission prompts.
+
+![The terminal with the Cidade Pixel theme](docs/terminal-cidade-pixel.jpg)
+
+<sub>Illustrative images. On your Mac, how bright the background looks depends on the window size and on iTerm2's "Blending" setting.</sub>
+
+## All the backgrounds
+
+There are 37 backgrounds in total: 12 for Rengoku, 20 for Lofi Cidades and 5 for Cidade Pixel (one of them with the robot). There are also darker versions of two of them, used as the default backgrounds.
+
+![All the backgrounds](docs/galeria.jpg)
 
 ---
 
-## O que precisas
+## What you need
 
-- Um **Mac**.
-- O **[iTerm2](https://iterm2.com)**. O Terminal normal do Mac não mostra imagens de fundo.
-- O **[Claude Code](https://code.claude.com)**, versão 2.1.118 ou mais recente (a que trouxe os temas personalizados). Para ver a tua versão: `claude --version`.
+- A **Mac**.
+- **[iTerm2](https://iterm2.com)**. The Mac's built-in Terminal can't show background images.
+- **[Claude Code](https://code.claude.com)**, version 2.1.118 or newer (the one that added custom themes). To check your version: `claude --version`.
 
-## Como instalar
+## How to install
 
-**1. Baixa esta pasta.** Escolhe uma das formas:
+**1. Download this folder.** Pick one way:
 
-- **Com o Git**, no Terminal:
+- **With Git**, in the Terminal:
   ```bash
   git clone https://github.com/joaocalixto/temas-claude-code.git ~/temas-claude-code
   ```
-- **Sem o Git:** carrega no botão verde **Code → Download ZIP**, abre o ZIP e põe a pasta num sítio fixo (por exemplo, a tua pasta pessoal).
+- **Without Git:** click the green **Code → Download ZIP** button, open the ZIP and put the folder somewhere it will stay (for example, your home folder).
 
-> Não apagues nem mudes a pasta de lugar depois de instalar: as imagens de fundo são lidas dali. Se a mudares, corre o instalador outra vez.
+> Don't delete or move the folder after installing: the background images are read from there. If you move it, run the installer again.
 
-**2. Corre o instalador.** Dentro da pasta, dá dois cliques em **`instalar.command`**.
-Se o Mac disser que não o pode abrir, clica com o botão direito → **Abrir** → **Abrir**.
-Também podes corrê-lo no Terminal: `~/temas-claude-code/instalar.command`.
+**2. Run the installer.** Inside the folder, double-click **`instalar.command`** (*instalar* = install).
+If your Mac says it can't open it, right-click it → **Open** → **Open**.
+You can also run it in the Terminal: `~/temas-claude-code/instalar.command`.
 
-**3. Escolhe o perfil no iTerm2.** No menu **Profiles**, escolhe **"Claude · Cidade Pixel"** (ou outro). Para ficar sempre assim: **Settings → Profiles**, seleciona o perfil, clica em **Other Actions… → Set as Default** e abre uma janela nova (**⌘N**).
+**3. Pick the profile in iTerm2.** In the **Profiles** menu, choose **"Claude · Cidade Pixel"** (or another one). To keep it every time: **Settings → Profiles**, select the profile, click **Other Actions… → Set as Default** and open a new window (**⌘N**).
 
-**4. Escolhe o tema no Claude Code (só uma vez).** Fecha e abre o Claude Code, escreve `/theme` e escolhe **"Tema ativo"**.
+**4. Pick the theme in Claude Code (only once).** Close and reopen Claude Code, type `/theme` and choose **"Tema ativo"** (*active theme*).
 
-Pronto. A partir daqui usas o `/tema` e o `/fundo`.
+That's it. From now on you use `/tema` and `/fundo`.
 
-## Como usar
+## How to use
 
-Dentro do Claude Code:
+Inside Claude Code:
 
-| Comando | O que faz |
+| Command | What it does |
 |---|---|
-| `/tema pixel` | Muda para a Cidade Pixel |
-| `/tema lofi` | Muda para a Lofi Cidades |
-| `/tema rengoku` | Muda para o Rengoku |
-| `/tema lista` | Mostra os temas |
-| `/fundo lista` | Mostra todos os fundos |
-| `/fundo lisboa 2` | Troca para o fundo que tem essas palavras no nome |
-| `/fundo robo` | Volta à Cidade Pixel com o robozinho |
-| `/fundo aleatorio` | Escolhe um fundo ao calhas |
-| `/fundo nenhum` | Tira a imagem de fundo |
+| `/tema pixel` | Switches to Cidade Pixel |
+| `/tema lofi` | Switches to Lofi Cidades |
+| `/tema rengoku` | Switches to Rengoku |
+| `/tema lista` | Lists the themes |
+| `/fundo lista` | Lists all the backgrounds |
+| `/fundo lisboa 2` | Switches to the background that has those words in its name |
+| `/fundo robo` | Goes back to Cidade Pixel with the robot |
+| `/fundo aleatorio` | Picks a random background |
+| `/fundo nenhum` | Removes the background image |
 
-- O `/tema` e o `/fundo` mudam só a janela onde estás. As janelas novas abrem com o perfil padrão do iTerm2.
-- Na primeira vez que usares o `/fundo`, o iTerm2 pede autorização para mudar a imagem. Escolhe **Allow**.
+- `/tema` and `/fundo` only change the window you're in. New windows open with iTerm2's default profile.
+- The first time you use `/fundo`, iTerm2 asks for permission to change the image. Choose **Allow**.
 
-## O que o tema muda
+## What the theme changes
 
-**No iTerm2** (os perfis "Claude · ..."):
+**In iTerm2** (the "Claude · ..." profiles):
 
-- **Imagem de fundo**, escurecida o suficiente para as letras se lerem bem.
-- **Cor da aba**, diferente em cada tema.
-- **As 16 cores do terminal**, as que o Git e os outros programas usam.
-- **Cor do cursor e da seleção.**
-- A **letra (fonte)** e o resto vêm do teu perfil **Default**, por isso os ícones do teu prompt continuam a aparecer.
+- **Background image**, darkened just enough for the text to be easy to read.
+- **Tab color**, different for each theme.
+- **The 16 terminal colors**, the ones Git and other programs use.
+- **Cursor and selection colors.**
+- The **font** and everything else come from your **Default** profile, so the icons in your prompt keep showing.
 
-**No Claude Code:** as cores do Claude, da caixa onde escreves, dos pedidos de permissão, do modo plano, dos erros, dos avisos e das linhas novas e apagadas no código.
+**In Claude Code:** the colors of Claude, the box you type in, permission prompts, plan mode, errors, warnings, and added and removed lines in code.
 
-## Ajustes
+## Tweaks
 
-- **Fundo muito claro ou muito escuro:** em **iTerm2 → Settings → Profiles → (o perfil) → Window**, mexe no controlo **Blending**.
-- **Mudar o fundo padrão de um tema:** em `iterm2/temas-claude-code.json`, troca a linha `"Background Image Location"` desse perfil por outra imagem da pasta `imagens/`. Depois corre o `instalar.command` de novo.
-- **Mudar as cores do Claude Code:** edita o tema em `claude-code/themes/`. Os nomes das cores estão na [documentação do Claude Code](https://code.claude.com/docs/en/terminal-config#create-a-custom-theme).
+- **Background too bright or too dark:** in **iTerm2 → Settings → Profiles → (the profile) → Window**, move the **Blending** slider.
+- **Change a theme's default background:** in `iterm2/temas-claude-code.json`, change that profile's `"Background Image Location"` line to another image from the `imagens/` folder. Then run `instalar.command` again.
+- **Change the Claude Code colors:** edit the theme in `claude-code/themes/`. The color names are in the [Claude Code documentation](https://code.claude.com/docs/en/terminal-config#create-a-custom-theme).
 
-## Desinstalar
+## Uninstall
 
-Dá dois cliques em **`desinstalar.command`**. Depois, no Claude Code, escreve `/theme` e escolhe outro tema. No iTerm2, se um perfil "Claude · ..." era o padrão, escolhe outro em **Settings → Profiles**.
+Double-click **`desinstalar.command`** (*desinstalar* = uninstall). Then, in Claude Code, type `/theme` and choose another theme. In iTerm2, if a "Claude · ..." profile was your default, choose another one in **Settings → Profiles**.
 
-## O que há nesta pasta
+## What's in this folder
 
 ```
-instalar.command        instala tudo (dois cliques)
-desinstalar.command     remove tudo
-tema.sh                 o que o /tema corre
-fundo.sh                o que o /fundo corre
-claude-code/themes/     as cores do Claude Code (um arquivo por tema)
-claude-code/commands/   os comandos /tema e /fundo
-iterm2/                 os três perfis do iTerm2
-imagens/                os fundos, cada um com o prompt num .txt ao lado
-docs/                   as imagens deste README
+instalar.command        installs everything (double-click)
+desinstalar.command     removes everything
+tema.sh                 what /tema runs
+fundo.sh                what /fundo runs
+claude-code/themes/     the Claude Code colors (one file per theme)
+claude-code/commands/   the /tema and /fundo commands
+iterm2/                 the three iTerm2 profiles
+imagens/                the backgrounds, each with its prompt in a .txt next to it
+docs/                   the images in this README
 ```
 
-## Como funciona (para curiosos)
+## How it works (for the curious)
 
-- Os perfis do iTerm2 são **perfis dinâmicos**: um arquivo em `~/Library/Application Support/iTerm2/DynamicProfiles/` que o iTerm2 lê sozinho.
-- Os temas do Claude Code vão para `~/.claude/themes/`. O "Tema ativo" é um tema especial: o `/tema` reescreve-o com as cores escolhidas e o Claude Code recarrega-o na hora.
-- Para mudar a janela, o `/tema` e o `/fundo` usam os códigos próprios do iTerm2 (`SetProfile` e `SetBackgroundImageFile`), enviados para a janela onde o Claude Code está aberto.
+- The iTerm2 profiles are **dynamic profiles**: a file in `~/Library/Application Support/iTerm2/DynamicProfiles/` that iTerm2 reads on its own.
+- The Claude Code themes go to `~/.claude/themes/`. "Tema ativo" is a special theme: `/tema` rewrites it with the chosen colors and Claude Code reloads it right away.
+- To change the window, `/tema` and `/fundo` use iTerm2's own codes (`SetProfile` and `SetBackgroundImageFile`), sent to the window where Claude Code is open.
 
-## Créditos
+## Credits
 
-- Fundos gerados com o **Midjourney**. O prompt de cada imagem está no `.txt` ao lado dela.
-- O robozinho da Cidade Pixel foi desenhado à mão, pixel a pixel.
-- Feito por **João Chagas**, com a ajuda do Claude.
+- Backgrounds made with **Midjourney**. Each image's prompt is in the `.txt` file next to it.
+- The robot in Cidade Pixel was drawn by hand, pixel by pixel.
+- Made by **João Chagas**, with help from Claude.
 
-Licença **MIT**: podes usar, mudar e partilhar à vontade. Vê o arquivo [LICENSE](LICENSE).
-
----
-
-### English (short)
-
-Three background-image themes for **Claude Code** running in **iTerm2** on macOS: Rengoku (embers), Lofi Cidades (lofi cities) and Cidade Pixel (pixel-art city). Clone the repo, double-click `instalar.command`, pick a "Claude · ..." profile in iTerm2, then run `/theme` in Claude Code and choose "Tema ativo". After that, use `/tema pixel|lofi|rengoku` to switch the whole theme and `/fundo <name>` to switch only the background. Requires iTerm2 and Claude Code 2.1.118+. MIT licensed.
+**MIT** license: you're free to use, change and share it. See the [LICENSE](LICENSE) file.
