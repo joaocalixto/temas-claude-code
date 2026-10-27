@@ -81,8 +81,10 @@ Inside Claude Code:
 | `/fundo robo` | Goes back to Cidade Pixel with the robot |
 | `/fundo aleatorio` | Picks a random background |
 | `/fundo nenhum` | Removes the background image |
+| `/tema-teste` | Shows a sample of everything the theme colors: the 16 terminal colors, text styles, icons, a code diff, a task list, headings, lists, a table and code blocks (*teste* = test) |
 
 - `/tema` and `/fundo` only change the window you're in. New windows open with iTerm2's default profile.
+- `/tema-teste` creates a small test file in `/tmp/tema-teste/` (not in your project), so Claude Code may ask for permission: that prompt is part of the test too.
 - The first time you use `/fundo`, iTerm2 asks for permission to change the image. Choose **Allow**.
 
 ## What the theme changes
@@ -117,6 +119,7 @@ instalar.command        installs everything (double-click)
 desinstalar.command     removes everything
 tema.sh                 what /tema runs
 fundo.sh                what /fundo runs
+amostra.sh              the color sample /tema-teste shows (*amostra* = sample)
 fonte/                  the JetBrains Mono Nerd Font (OFL license)
 claude-code/themes/     the Claude Code colors (one file per theme)
 claude-code/commands/   the /tema and /fundo commands

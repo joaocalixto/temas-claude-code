@@ -3,7 +3,7 @@
 ITERM="$HOME/Library/Application Support/iTerm2/DynamicProfiles"
 rm -f "$ITERM/claude-temas.json" "$ITERM/claude-cidade-pixel.json"
 rm -f "$HOME/.claude/themes/"{rengoku,lofi-cidades,cidade-pixel,tema-ativo}.json
-rm -f "$HOME/.claude/commands/"{tema,fundo}.md
+rm -f "$HOME/.claude/commands/"{tema,fundo,tema-teste}.md
 # se o Claude Code estava num destes temas, volta ao tema escuro normal
 if command -v osascript >/dev/null 2>&1 && [ -f "$HOME/.claude/settings.json" ]; then
   ARQ="$HOME/.claude/settings.json" osascript -l JavaScript >/dev/null 2>&1 <<'JS'

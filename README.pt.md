@@ -79,8 +79,10 @@ Dentro do Claude Code:
 | `/fundo robo` | Volta à Cidade Pixel com o robozinho |
 | `/fundo aleatorio` | Escolhe um fundo ao calhas |
 | `/fundo nenhum` | Tira a imagem de fundo |
+| `/tema-teste` | Mostra uma amostra de tudo o que o tema pinta: as 16 cores do terminal, estilos de texto, ícones, um diff de código, uma lista de tarefas, títulos, listas, uma tabela e blocos de código |
 
 - O `/tema` e o `/fundo` mudam só a janela onde estás. As janelas novas abrem com o perfil padrão do iTerm2.
+- O `/tema-teste` cria um pequeno arquivo de teste em `/tmp/tema-teste/` (fora do teu projeto), por isso o Claude Code pode pedir autorização: esse pedido também faz parte do teste.
 - Na primeira vez que usares o `/fundo`, o iTerm2 pede autorização para mudar a imagem. Escolhe **Allow**.
 
 ## O que o tema muda
@@ -115,6 +117,7 @@ instalar.command        instala tudo (dois cliques)
 desinstalar.command     remove tudo
 tema.sh                 o que o /tema corre
 fundo.sh                o que o /fundo corre
+amostra.sh              a amostra de cores que o /tema-teste mostra
 fonte/                  a letra JetBrains Mono Nerd Font (licença OFL)
 claude-code/themes/     as cores do Claude Code (um arquivo por tema)
 claude-code/commands/   os comandos /tema e /fundo
