@@ -60,7 +60,7 @@ There are 37 backgrounds in total: 12 for Rengoku, 20 for Lofi Cidades and 5 for
 If your Mac says it can't open it, right-click it → **Open** → **Open**.
 You can also run it in the Terminal: `~/temas-claude-code/instalar.command`.
 
-**3. Pick the profile in iTerm2.** In the **Profiles** menu, choose **"Claude · Cidade Pixel"** (or another one). To keep it every time: **Settings → Profiles**, select the profile, click **Other Actions… → Set as Default** and open a new window (**⌘N**).
+**3. Pick the profile in iTerm2.** Quit and reopen iTerm2 (so it sees the new font). In the **Profiles** menu, choose **"Claude · Cidade Pixel"** (or another one). To keep it every time: **Settings → Profiles**, select the profile, click **Other Actions… → Set as Default** and open a new window (**⌘N**).
 
 **4. Pick the theme in Claude Code (only once).** Close and reopen Claude Code, type `/theme` and choose **"Tema ativo"** (*active theme*).
 
@@ -93,12 +93,15 @@ Inside Claude Code:
 - **Tab color**, different for each theme.
 - **The 16 terminal colors**, the ones Git and other programs use.
 - **Cursor and selection colors.**
-- The **font** and everything else come from your **Default** profile, so the icons in your prompt keep showing.
+- **Font: JetBrains Mono Nerd Font**, the same one in the pictures. It comes in the `fonte/` folder and the installer adds it to your Mac. It has the icons that prompts like Powerlevel10k and Oh My Zsh use.
+- Everything else comes from your **Default** profile.
 
 **In Claude Code:** the colors of Claude, the box you type in, permission prompts, plan mode, errors, warnings, and added and removed lines in code.
 
 ## Tweaks
 
+- **Make the tab bar look like the pictures:** in **iTerm2 → Settings → Appearance → General**, set **Theme** to **Minimal**. The bar at the top then takes the terminal's dark color and the tab its theme color. This is an iTerm2-wide setting, so the installer doesn't change it for you.
+- **The Chat / Diff / Code Review bar** under the tabs belongs to Claude Code's full-screen mode, not to the theme.
 - **Background too bright or too dark:** in **iTerm2 → Settings → Profiles → (the profile) → Window**, move the **Blending** slider.
 - **Change a theme's default background:** in `iterm2/temas-claude-code.json`, change that profile's `"Background Image Location"` line to another image from the `imagens/` folder. Then run `instalar.command` again.
 - **Change the Claude Code colors:** edit the theme in `claude-code/themes/`. The color names are in the [Claude Code documentation](https://code.claude.com/docs/en/terminal-config#create-a-custom-theme).
@@ -114,6 +117,7 @@ instalar.command        installs everything (double-click)
 desinstalar.command     removes everything
 tema.sh                 what /tema runs
 fundo.sh                what /fundo runs
+fonte/                  the JetBrains Mono Nerd Font (OFL license)
 claude-code/themes/     the Claude Code colors (one file per theme)
 claude-code/commands/   the /tema and /fundo commands
 iterm2/                 the three iTerm2 profiles

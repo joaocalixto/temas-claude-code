@@ -10,6 +10,12 @@ if [ ! -d "/Applications/iTerm.app" ] && [ ! -d "$HOME/Applications/iTerm.app" ]
 fi
 
 mkdir -p "$ITERM" "$HOME/.claude/themes" "$HOME/.claude/commands"
+
+# fonte JetBrains Mono Nerd Font (com os ícones do prompt), só se ainda não existir
+mkdir -p "$HOME/Library/Fonts"
+for f in "$PASTA"/fonte/*.ttf; do
+  [ -f "$HOME/Library/Fonts/$(basename "$f")" ] || cp "$f" "$HOME/Library/Fonts/"
+done
 rm -f "$ITERM/claude-cidade-pixel.json"   # nome antigo
 sed "s#__PASTA__#$PASTA#g" "$PASTA/iterm2/temas-claude-code.json" > "$ITERM/claude-temas.json"
 cp "$PASTA"/claude-code/themes/*.json "$HOME/.claude/themes/"
@@ -23,7 +29,7 @@ chmod +x "$PASTA/fundo.sh" "$PASTA/tema.sh"
 echo ""
 echo "  Pronto! Temas e comandos /tema e /fundo instalados."
 echo ""
-echo "  1. iTerm2: menu Profiles > escolhe um perfil \"Claude · ...\""
+echo "  1. iTerm2: fecha e abre o iTerm2 (para ele ver a letra nova) e escolhe um perfil \"Claude · ...\" no menu Profiles"
 echo "  2. Claude Code: fecha e abre de novo, escreve /theme e escolhe \"Tema ativo\" (só uma vez)"
 echo "  3. Depois: /tema pixel   /tema lofi   /tema rengoku   /fundo lista"
 echo ""

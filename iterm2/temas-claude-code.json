@@ -11,9 +11,9 @@
       "Blur Radius": 12,
       "Use Tab Color": true,
       "Tab Color": {
-        "Red Component": 0.7607843137254902,
-        "Green Component": 0.2549019607843137,
-        "Blue Component": 0.1843137254901961,
+        "Red Component": 0.35294117647058826,
+        "Green Component": 0.13725490196078433,
+        "Blue Component": 0.09411764705882353,
         "Alpha Component": 1,
         "Color Space": "sRGB"
       },
@@ -187,7 +187,9 @@
         "Alpha Component": 1,
         "Color Space": "sRGB"
       },
-      "Dynamic Profile Parent Name": "Default"
+      "Dynamic Profile Parent Name": "Default",
+      "Normal Font": "JetBrainsMonoNFM-Regular 14",
+      "Use Non-ASCII Font": false
     },
     {
       "Name": "Claude · Lofi Cidades",
@@ -200,9 +202,9 @@
       "Blur Radius": 12,
       "Use Tab Color": true,
       "Tab Color": {
-        "Red Component": 0.9137254901960784,
-        "Green Component": 0.5411764705882353,
-        "Blue Component": 0.41568627450980394,
+        "Red Component": 0.2901960784313726,
+        "Green Component": 0.1803921568627451,
+        "Blue Component": 0.22745098039215686,
         "Alpha Component": 1,
         "Color Space": "sRGB"
       },
@@ -376,7 +378,9 @@
         "Alpha Component": 1,
         "Color Space": "sRGB"
       },
-      "Dynamic Profile Parent Name": "Default"
+      "Dynamic Profile Parent Name": "Default",
+      "Normal Font": "JetBrainsMonoNFM-Regular 14",
+      "Use Non-ASCII Font": false
     },
     {
       "Name": "Claude · Cidade Pixel",
@@ -389,9 +393,9 @@
       "Blur Radius": 12,
       "Use Tab Color": true,
       "Tab Color": {
-        "Red Component": 0.22745098039215686,
-        "Green Component": 0.4823529411764706,
-        "Blue Component": 0.8352941176470589,
+        "Red Component": 0.10588235294117647,
+        "Green Component": 0.2,
+        "Blue Component": 0.37254901960784315,
         "Alpha Component": 1,
         "Color Space": "sRGB"
       },
@@ -565,7 +569,9 @@
         "Alpha Component": 1,
         "Color Space": "sRGB"
       },
-      "Dynamic Profile Parent Name": "Default"
+      "Dynamic Profile Parent Name": "Default",
+      "Normal Font": "JetBrainsMonoNFM-Regular 14",
+      "Use Non-ASCII Font": false
     }
   ]
 }
