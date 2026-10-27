@@ -19,8 +19,6 @@ done
 rm -f "$ITERM/claude-cidade-pixel.json"   # nome antigo
 sed "s#__PASTA__#$PASTA#g" "$PASTA/iterm2/temas-claude-code.json" > "$ITERM/claude-temas.json"
 cp "$PASTA"/claude-code/themes/*.json "$HOME/.claude/themes/"
-[ -f "$HOME/.claude/themes/tema-ativo.json" ] || \
-  sed 's/"name": *"[^"]*"/"name": "Tema ativo · Cidade Pixel"/' "$PASTA/claude-code/themes/cidade-pixel.json" > "$HOME/.claude/themes/tema-ativo.json"
 for c in fundo tema; do
   sed "s#__PASTA__#$PASTA#g" "$PASTA/claude-code/commands/$c.md" > "$HOME/.claude/commands/$c.md"
 done
@@ -30,8 +28,8 @@ echo ""
 echo "  Pronto! Temas e comandos /tema e /fundo instalados."
 echo ""
 echo "  1. iTerm2: fecha e abre o iTerm2 (para ele ver a letra nova) e escolhe um perfil \"Claude · ...\" no menu Profiles"
-echo "  2. Claude Code: fecha e abre de novo, escreve /theme e escolhe \"Tema ativo\" (só uma vez)"
-echo "  3. Depois: /tema pixel   /tema lofi   /tema rengoku   /fundo lista"
+echo "  2. Claude Code: fecha e abre de novo e escreve /tema pixel (ou lofi, ou rengoku)"
+echo "     O /tema muda o iTerm2 e o Claude Code ao mesmo tempo. Para só o fundo: /fundo lista"
 echo ""
 echo "  Não apagues nem mudes esta pasta de lugar: os fundos são lidos daqui."
 echo "  Se a mudares, corre o instalar.command outra vez."

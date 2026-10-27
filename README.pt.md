@@ -60,9 +60,9 @@ Também podes corrê-lo no Terminal: `~/temas-claude-code/instalar.command`.
 
 **3. Escolhe o perfil no iTerm2.** Fecha e abre o iTerm2 (para ele ver a letra nova). No menu **Profiles**, escolhe **"Claude · Cidade Pixel"** (ou outro). Para ficar sempre assim: **Settings → Profiles**, seleciona o perfil, clica em **Other Actions… → Set as Default** e abre uma janela nova (**⌘N**).
 
-**4. Escolhe o tema no Claude Code (só uma vez).** Fecha e abre o Claude Code, escreve `/theme` e escolhe **"Tema ativo"**.
+**4. Escolhe o tema no Claude Code.** Fecha e abre o Claude Code (para ele ver os comandos novos) e escreve `/tema pixel` (ou `lofi`, ou `rengoku`).
 
-Pronto. A partir daqui usas o `/tema` e o `/fundo`.
+Pronto. O `/tema` muda o iTerm2 e o Claude Code ao mesmo tempo, por isso não precisas do menu `/theme` do Claude Code.
 
 ## Como usar
 
@@ -106,7 +106,7 @@ Dentro do Claude Code:
 
 ## Desinstalar
 
-Dá dois cliques em **`desinstalar.command`**. Depois, no Claude Code, escreve `/theme` e escolhe outro tema. No iTerm2, se um perfil "Claude · ..." era o padrão, escolhe outro em **Settings → Profiles**.
+Dá dois cliques em **`desinstalar.command`**. Se o Claude Code estava num destes temas, volta ao tema escuro normal. No iTerm2, se um perfil "Claude · ..." era o padrão, escolhe outro em **Settings → Profiles**.
 
 ## O que há nesta pasta
 
@@ -126,7 +126,7 @@ docs/                   as imagens deste README
 ## Como funciona (para curiosos)
 
 - Os perfis do iTerm2 são **perfis dinâmicos**: um arquivo em `~/Library/Application Support/iTerm2/DynamicProfiles/` que o iTerm2 lê sozinho.
-- Os temas do Claude Code vão para `~/.claude/themes/`. O "Tema ativo" é um tema especial: o `/tema` reescreve-o com as cores escolhidas e o Claude Code recarrega-o na hora.
+- Os temas do Claude Code vão para `~/.claude/themes/`. O `/tema` escolhe um deles escrevendo `"theme": "custom:<nome>"` em `~/.claude/settings.json` (só essa linha; o resto fica como estava). O Claude Code relê esse arquivo sozinho, por isso as cores mudam na hora.
 - Para mudar a janela, o `/tema` e o `/fundo` usam os códigos próprios do iTerm2 (`SetProfile` e `SetBackgroundImageFile`), enviados para a janela onde o Claude Code está aberto.
 
 ## Créditos

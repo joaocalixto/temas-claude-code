@@ -62,9 +62,9 @@ You can also run it in the Terminal: `~/temas-claude-code/instalar.command`.
 
 **3. Pick the profile in iTerm2.** Quit and reopen iTerm2 (so it sees the new font). In the **Profiles** menu, choose **"Claude · Cidade Pixel"** (or another one). To keep it every time: **Settings → Profiles**, select the profile, click **Other Actions… → Set as Default** and open a new window (**⌘N**).
 
-**4. Pick the theme in Claude Code (only once).** Close and reopen Claude Code, type `/theme` and choose **"Tema ativo"** (*active theme*).
+**4. Pick the theme in Claude Code.** Close and reopen Claude Code (so it sees the new commands) and type `/tema pixel` (or `lofi`, or `rengoku`).
 
-That's it. From now on you use `/tema` and `/fundo`.
+That's it. `/tema` changes iTerm2 and Claude Code at the same time, so you don't need Claude Code's own `/theme` menu.
 
 ## How to use
 
@@ -108,7 +108,7 @@ Inside Claude Code:
 
 ## Uninstall
 
-Double-click **`desinstalar.command`** (*desinstalar* = uninstall). Then, in Claude Code, type `/theme` and choose another theme. In iTerm2, if a "Claude · ..." profile was your default, choose another one in **Settings → Profiles**.
+Double-click **`desinstalar.command`** (*desinstalar* = uninstall). If Claude Code was using one of these themes, it goes back to its normal dark theme. In iTerm2, if a "Claude · ..." profile was your default, choose another one in **Settings → Profiles**.
 
 ## What's in this folder
 
@@ -128,7 +128,7 @@ docs/                   the images in this README
 ## How it works (for the curious)
 
 - The iTerm2 profiles are **dynamic profiles**: a file in `~/Library/Application Support/iTerm2/DynamicProfiles/` that iTerm2 reads on its own.
-- The Claude Code themes go to `~/.claude/themes/`. "Tema ativo" is a special theme: `/tema` rewrites it with the chosen colors and Claude Code reloads it right away.
+- The Claude Code themes go to `~/.claude/themes/`. `/tema` picks one by writing `"theme": "custom:<name>"` to `~/.claude/settings.json` (only that key; everything else stays as it was). Claude Code reloads that file on its own, so the colors change right away.
 - To change the window, `/tema` and `/fundo` use iTerm2's own codes (`SetProfile` and `SetBackgroundImageFile`), sent to the window where Claude Code is open.
 
 ## Credits
