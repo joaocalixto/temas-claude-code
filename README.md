@@ -61,8 +61,8 @@ If your Mac says it can't open it, right-click it → **Open** → **Open**.
 You can also run it in the Terminal: `~/temas-claude-code/instalar.command`.
 
 **3. Open iTerm2.** Quit and reopen iTerm2 (so it sees the new font).
-The installer creates the **"Claude · Último"** profile (*último* = last) and makes it iTerm2's default profile. This profile keeps the last theme and the last background you picked, so new tabs and windows always open the same way.
-If iTerm2 was open while you installed, the installer can't change the default profile. In that case, do this once: **Settings → Profiles**, select **"Claude · Último"**, click **Other Actions… → Set as Default** and open a new tab (**⌘T**).
+For new tabs to open with a theme, it has to be iTerm2's default profile: **Settings → Profiles**, select the profile, click **Other Actions… → Set as Default**.
+The handiest choice is **"Claude · Último"** (*último* = last), which the installer creates: it always copies the last theme you picked with `/tema`. If iTerm2 is closed while you install, the installer makes it the default for you.
 
 **4. Pick the theme in Claude Code.** Close and reopen Claude Code (so it sees the new commands) and type `/tema pixel` (or `lofi`, or `rengoku`).
 
@@ -84,10 +84,12 @@ Inside Claude Code:
 | `/fundo robo` | Goes back to Cidade Pixel with the robot |
 | `/fundo aleatorio` | Picks a random background |
 | `/fundo nenhum` | Removes the background image |
+| `/fundo original` | Goes back to the background the theme ships with |
 | `/tema-teste` | Shows a sample of everything the theme colors: the 16 terminal colors, text styles, icons, a code diff, a task list, headings, lists, a table and code blocks (*teste* = test) |
 
-- `/tema` and `/fundo` change the tab you're in right away and save your choice in the **"Claude · Último"** profile. New tabs and windows open with the last theme and the last background you picked (as long as that profile is the default, see step 3).
-- `/tema` goes back to the theme's own background. If you want a different background in that theme, use `/fundo` afterwards.
+- `/fundo` changes the tab you're in and saves the image as that tab's **theme default background**. For example, `/fundo lisboa 2` in a Lofi Cidades tab makes every new Lofi Cidades tab open with Lisbon. Other open tabs with that theme change too.
+- Each theme remembers its background: if you go back to a theme with `/tema`, it shows the last background you gave it.
+- Your choices are kept when you update and run the installer again.
 - `/tema-teste` creates a small test file in `/tmp/tema-teste/` (not in your project), so Claude Code may ask for permission: that prompt is part of the test too.
 - The first time you use `/fundo`, iTerm2 asks for permission to change the image. Choose **Allow**.
 
@@ -97,7 +99,7 @@ Inside Claude Code:
 
 - **Background image**, darkened just enough for the text to be easy to read.
 - **Tab color**, different for each theme.
-- **"Claude · Último"**, an extra profile that copies the last theme and background you picked with `/tema` and `/fundo`.
+- **"Claude · Último"**, an extra profile that copies the last theme you picked with `/tema`.
 - **The 16 terminal colors**, the ones Git and other programs use.
 - **Cursor and selection colors.**
 - **Font: JetBrains Mono Nerd Font**, the same one in the pictures. It comes in the `fonte/` folder and the installer adds it to your Mac. It has the icons that prompts like Powerlevel10k and Oh My Zsh use.
@@ -124,7 +126,7 @@ instalar.command        installs everything (double-click)
 desinstalar.command     removes everything
 tema.sh                 what /tema runs
 fundo.sh                what /fundo runs
-lembrar.sh              saves the last theme and background in the "Claude · Último" profile (*lembrar* = remember)
+lembrar.sh              saves each theme's background and the "Claude · Último" profile (*lembrar* = remember)
 amostra.sh              the color sample /tema-teste shows (*amostra* = sample)
 fonte/                  the JetBrains Mono Nerd Font (OFL license)
 claude-code/themes/     the Claude Code colors (one file per theme)
@@ -139,7 +141,8 @@ docs/                   the images in this README
 - The iTerm2 profiles are **dynamic profiles**: a file in `~/Library/Application Support/iTerm2/DynamicProfiles/` that iTerm2 reads on its own.
 - The Claude Code themes go to `~/.claude/themes/`. `/tema` picks one by writing `"theme": "custom:<name>"` to `~/.claude/settings.json` (only that key; everything else stays as it was). Claude Code reloads that file on its own, so the colors change right away.
 - To change the window, `/tema` and `/fundo` use iTerm2's own codes (`SetProfile` and `SetBackgroundImageFile`), sent to the window where Claude Code is open.
-- For new tabs, both commands rewrite a second dynamic profile, `claude-ultimo.json`. It only says two things: which theme it inherits everything from (`Dynamic Profile Parent Name`) and, if you used `/fundo`, which image to show. iTerm2 notices the file changed and updates the profile on its own.
+- `/fundo` stores each theme's image in `~/.claude/temas-fundos.txt` and rewrites the profiles file with those images. iTerm2 notices the change and updates the profiles on its own.
+- "Claude · Último" is a second dynamic profile, `claude-ultimo.json`, that only says which theme it inherits everything from (`Dynamic Profile Parent Name`).
 
 ## Credits
 

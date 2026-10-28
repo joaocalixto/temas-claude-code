@@ -17,11 +17,12 @@ for f in "$PASTA"/fonte/*.ttf; do
   [ -f "$HOME/Library/Fonts/$(basename "$f")" ] || cp "$f" "$HOME/Library/Fonts/"
 done
 rm -f "$ITERM/claude-cidade-pixel.json"   # nome antigo
-sed "s#__PASTA__#$PASTA#g" "$PASTA/iterm2/temas-claude-code.json" > "$ITERM/claude-temas.json"
+# perfis dos temas, já com os fundos que escolheste com o /fundo (ficam em ~/.claude/temas-fundos.txt)
+. "$PASTA/lembrar.sh"
+fundos_gerar
 cp "$PASTA"/claude-code/themes/*.json "$HOME/.claude/themes/"
 
-# perfil "Claude · Último": guarda o último /tema e /fundo, para as abas novas abrirem igual
-. "$PASTA/lembrar.sh"
+# perfil "Claude · Último": copia o último /tema e /fundo
 [ -f "$ULTIMO_ARQ" ] || ultimo_guardar "$(ultimo_tema)"
 # põe-no como perfil padrão do iTerm2. Só dá com o iTerm2 fechado: aberto, ele guarda o padrão antigo por cima.
 if pgrep -x iTerm2 >/dev/null 2>&1; then

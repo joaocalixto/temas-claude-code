@@ -37,6 +37,7 @@ JS
 fi
 
 # 2) iTerm2: guarda o tema (com o fundo próprio dele) para as abas novas
+tema_marcar "$perfil"
 if ultimo_guardar "$perfil"; then guardado=", e as abas novas também abrem assim"; else guardado=", mas não consegui guardar para as abas novas"; fi
 
 # 3) iTerm2: muda o perfil desta janela
