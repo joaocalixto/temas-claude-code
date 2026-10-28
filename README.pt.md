@@ -58,7 +58,9 @@ São 37 fundos ao todo: 12 do Rengoku, 20 da Lofi Cidades e 5 da Cidade Pixel (u
 Se o Mac disser que não o pode abrir, clica com o botão direito → **Abrir** → **Abrir**.
 Também podes corrê-lo no Terminal: `~/temas-claude-code/instalar.command`.
 
-**3. Escolhe o perfil no iTerm2.** Fecha e abre o iTerm2 (para ele ver a letra nova). No menu **Profiles**, escolhe **"Claude · Cidade Pixel"** (ou outro). Para ficar sempre assim: **Settings → Profiles**, seleciona o perfil, clica em **Other Actions… → Set as Default** e abre uma janela nova (**⌘N**).
+**3. Abre o iTerm2.** Fecha e abre o iTerm2 (para ele ver a letra nova).
+O instalador cria o perfil **"Claude · Último"** e põe-no como perfil padrão do iTerm2. Este perfil guarda o último tema e o último fundo que escolheste, por isso as abas e janelas novas abrem sempre igual.
+Se o iTerm2 estava aberto durante a instalação, o instalador não consegue mudar o perfil padrão. Nesse caso faz isto uma vez: **Settings → Profiles**, seleciona **"Claude · Último"**, clica em **Other Actions… → Set as Default** e abre uma aba nova (**⌘T**).
 
 **4. Escolhe o tema no Claude Code.** Fecha e abre o Claude Code (para ele ver os comandos novos) e escreve `/tema pixel` (ou `lofi`, ou `rengoku`).
 
@@ -81,7 +83,8 @@ Dentro do Claude Code:
 | `/fundo nenhum` | Tira a imagem de fundo |
 | `/tema-teste` | Mostra uma amostra de tudo o que o tema pinta: as 16 cores do terminal, estilos de texto, ícones, um diff de código, uma lista de tarefas, títulos, listas, uma tabela e blocos de código |
 
-- O `/tema` e o `/fundo` mudam só a janela onde estás. As janelas novas abrem com o perfil padrão do iTerm2.
+- O `/tema` e o `/fundo` mudam a aba onde estás na hora e guardam a escolha no perfil **"Claude · Último"**. As abas e janelas novas abrem com o último tema e o último fundo que escolheste (desde que esse perfil seja o padrão, ver passo 3).
+- O `/tema` volta ao fundo próprio do tema. Se quiseres outro fundo nesse tema, usa o `/fundo` a seguir.
 - O `/tema-teste` cria um pequeno arquivo de teste em `/tmp/tema-teste/` (fora do teu projeto), por isso o Claude Code pode pedir autorização: esse pedido também faz parte do teste.
 - Na primeira vez que usares o `/fundo`, o iTerm2 pede autorização para mudar a imagem. Escolhe **Allow**.
 
@@ -91,6 +94,7 @@ Dentro do Claude Code:
 
 - **Imagem de fundo**, escurecida o suficiente para as letras se lerem bem.
 - **Cor da aba**, diferente em cada tema.
+- **"Claude · Último"**, um perfil extra que copia o último tema e o último fundo que escolheste com o `/tema` e o `/fundo`.
 - **As 16 cores do terminal**, as que o Git e os outros programas usam.
 - **Cor do cursor e da seleção.**
 - **Letra: JetBrains Mono Nerd Font**, a mesma das imagens. Vem na pasta `fonte/` e o instalador põe-na no teu Mac. Tem os ícones que prompts como o Powerlevel10k e o Oh My Zsh usam.
@@ -108,7 +112,7 @@ Dentro do Claude Code:
 
 ## Desinstalar
 
-Dá dois cliques em **`desinstalar.command`**. Se o Claude Code estava num destes temas, volta ao tema escuro normal. No iTerm2, se um perfil "Claude · ..." era o padrão, escolhe outro em **Settings → Profiles**.
+Dá dois cliques em **`desinstalar.command`**. Se o Claude Code estava num destes temas, volta ao tema escuro normal. No iTerm2, escolhe outro perfil padrão em **Settings → Profiles** (o "Claude · Último" deixa de existir).
 
 ## O que há nesta pasta
 
@@ -117,6 +121,7 @@ instalar.command        instala tudo (dois cliques)
 desinstalar.command     remove tudo
 tema.sh                 o que o /tema corre
 fundo.sh                o que o /fundo corre
+lembrar.sh              guarda o último tema e fundo no perfil "Claude · Último"
 amostra.sh              a amostra de cores que o /tema-teste mostra
 fonte/                  a letra JetBrains Mono Nerd Font (licença OFL)
 claude-code/themes/     as cores do Claude Code (um arquivo por tema)
@@ -131,6 +136,7 @@ docs/                   as imagens deste README
 - Os perfis do iTerm2 são **perfis dinâmicos**: um arquivo em `~/Library/Application Support/iTerm2/DynamicProfiles/` que o iTerm2 lê sozinho.
 - Os temas do Claude Code vão para `~/.claude/themes/`. O `/tema` escolhe um deles escrevendo `"theme": "custom:<nome>"` em `~/.claude/settings.json` (só essa linha; o resto fica como estava). O Claude Code relê esse arquivo sozinho, por isso as cores mudam na hora.
 - Para mudar a janela, o `/tema` e o `/fundo` usam os códigos próprios do iTerm2 (`SetProfile` e `SetBackgroundImageFile`), enviados para a janela onde o Claude Code está aberto.
+- Para as abas novas, os dois comandos reescrevem um segundo perfil dinâmico, `claude-ultimo.json`. Esse perfil diz só duas coisas: de que tema herda tudo (`Dynamic Profile Parent Name`) e, se usaste o `/fundo`, qual é a imagem. O iTerm2 nota a mudança no arquivo e atualiza o perfil sozinho.
 
 ## Créditos
 

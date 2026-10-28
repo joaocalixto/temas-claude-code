@@ -1,7 +1,9 @@
 #!/bin/bash
 # Troca o tema de uma vez: perfil do iTerm2 (fundo, cores, letra) + tema do Claude Code.
+# Também o guarda no perfil "Claude · Último", para as abas novas abrirem com ele.
 # Uso: tema.sh lista | rengoku | lofi | pixel
 PASTA="$(cd "$(dirname "$0")" && pwd)"
+. "$PASTA/lembrar.sh"
 pedido="$(echo "$*" | tr 'A-Z' 'a-z')"
 case "$pedido" in
   ""|lista) echo "Temas disponíveis:"; echo "  rengoku   – brasas e samurai"; echo "  lofi      – Lofi Cidades (Lisboa e cidades inventadas)"; echo "  pixel     – Cidade Pixel com o robozinho"; exit 0 ;;
@@ -33,7 +35,10 @@ JS
   then cc="Claude Code"; else cc="não consegui mudar o tema do Claude Code (escreve /theme e escolhe $nome)"; fi
 fi
 
-# 2) iTerm2: muda o perfil desta janela
+# 2) iTerm2: guarda o tema (com o fundo próprio dele) para as abas novas
+if ultimo_guardar "$perfil"; then guardado=", e as abas novas também abrem assim"; else guardado=", mas não consegui guardar para as abas novas"; fi
+
+# 3) iTerm2: muda o perfil desta janela
 pid=$$; tty=""
 while [ -n "$pid" ] && [ "$pid" -gt 1 ]; do
   t="$(ps -o tty= -p "$pid" 2>/dev/null | tr -d ' ')"
@@ -43,7 +48,7 @@ done
 if [ -n "$tty" ]; then
   case "$tty" in /dev/*) dev="$tty" ;; *) dev="/dev/$tty" ;; esac
   printf '\033]1337;SetProfile=%s\a' "$perfil" > "$dev"
-  echo "Tema trocado para: $nome (iTerm2 e $cc)"
+  echo "Tema trocado para: $nome (iTerm2 e $cc$guardado)"
 else
-  echo "Tema trocado para: $nome ($cc). Não encontrei a janela do iTerm2."
+  echo "Tema trocado para: $nome ($cc$guardado). Não encontrei a janela do iTerm2."
 fi

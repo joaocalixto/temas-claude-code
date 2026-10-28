@@ -1,7 +1,7 @@
 #!/bin/bash
 # Remove os temas, os perfis do iTerm2 e os comandos /tema e /fundo.
 ITERM="$HOME/Library/Application Support/iTerm2/DynamicProfiles"
-rm -f "$ITERM/claude-temas.json" "$ITERM/claude-cidade-pixel.json"
+rm -f "$ITERM/claude-temas.json" "$ITERM/claude-cidade-pixel.json" "$ITERM/claude-ultimo.json"
 rm -f "$HOME/.claude/themes/"{rengoku,lofi-cidades,cidade-pixel,tema-ativo}.json
 rm -f "$HOME/.claude/commands/"{tema,fundo,tema-teste}.md
 # se o Claude Code estava num destes temas, volta ao tema escuro normal
