@@ -5,8 +5,9 @@
 PASTA="$(cd "$(dirname "$0")" && pwd)"
 . "$PASTA/lembrar.sh"
 pedido="$(echo "$*" | tr 'A-Z' 'a-z')"
+case "$pedido" in aleatorio|aleatório) pedido="$(printf 'rengoku\nlofi\npixel\n' | awk 'BEGIN{srand()} {a[NR]=$0} END{print a[int(rand()*NR)+1]}')" ;; esac
 case "$pedido" in
-  ""|lista) echo "Temas disponíveis:"; echo "  rengoku   – brasas e samurai"; echo "  lofi      – Lofi Cidades (Lisboa e cidades inventadas)"; echo "  pixel     – Cidade Pixel com o robozinho"; exit 0 ;;
+  ""|lista) echo "Temas disponíveis:"; echo "  rengoku   – brasas e samurai"; echo "  lofi      – Lofi Cidades (Lisboa e cidades inventadas)"; echo "  pixel     – Cidade Pixel com o robozinho"; echo "  aleatorio – um dos três ao calhas"; exit 0 ;;
   *reng*) perfil="Claude · Rengoku"; slug="rengoku"; nome="Rengoku" ;;
   *lofi*) perfil="Claude · Lofi Cidades"; slug="lofi-cidades"; nome="Lofi Cidades" ;;
   *pixel*|*cidade*) perfil="Claude · Cidade Pixel"; slug="cidade-pixel"; nome="Cidade Pixel" ;;

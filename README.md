@@ -77,6 +77,7 @@ Inside Claude Code:
 | `/tema pixel` | Switches to Cidade Pixel |
 | `/tema lofi` | Switches to Lofi Cidades |
 | `/tema rengoku` | Switches to Rengoku |
+| `/tema aleatorio` | Picks one of the three themes at random (*aleatório* = random) |
 | `/tema lista` | Lists the themes |
 | `/fundo lista` | Lists all the backgrounds |
 | `/fundo lisboa 2` | Switches to the background that has those words in its name |

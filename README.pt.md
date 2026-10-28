@@ -75,6 +75,7 @@ Dentro do Claude Code:
 | `/tema pixel` | Muda para a Cidade Pixel |
 | `/tema lofi` | Muda para a Lofi Cidades |
 | `/tema rengoku` | Muda para o Rengoku |
+| `/tema aleatorio` | Escolhe um dos três temas ao calhas |
 | `/tema lista` | Mostra os temas |
 | `/fundo lista` | Mostra todos os fundos |
 | `/fundo lisboa 2` | Troca para o fundo que tem essas palavras no nome |
