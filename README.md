@@ -103,7 +103,7 @@ Inside Claude Code:
 - **The 16 terminal colors**, the ones Git and other programs use.
 - **Cursor and selection colors.**
 - **Font: JetBrains Mono Nerd Font**, the same one in the pictures. It comes in the `fonte/` folder and the installer adds it to your Mac. It has the icons that prompts like Powerlevel10k and Oh My Zsh use.
-- Everything else comes from your **Default** profile.
+- Everything else comes from your **Default** profile, except the Hotkey Window shortcut: the themes come without one, so they don't clash with a shortcut you already set on Default.
 
 **In Claude Code:** the colors of Claude, the box you type in, permission prompts, plan mode, errors, warnings, and added and removed lines in code.
 

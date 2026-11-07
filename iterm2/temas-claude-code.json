@@ -188,6 +188,7 @@
         "Color Space": "sRGB"
       },
       "Dynamic Profile Parent Name": "Default",
+      "Has Hotkey": false,
       "Normal Font": "JetBrainsMonoNFM-Regular 14",
       "Use Non-ASCII Font": false
     },
@@ -379,6 +380,7 @@
         "Color Space": "sRGB"
       },
       "Dynamic Profile Parent Name": "Default",
+      "Has Hotkey": false,
       "Normal Font": "JetBrainsMonoNFM-Regular 14",
       "Use Non-ASCII Font": false
     },
@@ -570,6 +572,7 @@
         "Color Space": "sRGB"
       },
       "Dynamic Profile Parent Name": "Default",
+      "Has Hotkey": false,
       "Normal Font": "JetBrainsMonoNFM-Regular 14",
       "Use Non-ASCII Font": false
     }
