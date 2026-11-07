@@ -105,6 +105,12 @@ Dentro do Claude Code:
 
 **No Claude Code:** as cores do Claude, da caixa onde escreves, dos pedidos de permissão, do modo plano, dos erros, dos avisos e das linhas novas e apagadas no código.
 
+**No prompt do Powerlevel10k** (só se já o usas): blocos coloridos com a pasta, o git, ✔ ou ✘ do último comando, quanto ele demorou (a partir de 3 segundos), a versão do Java ou do Node (só dentro de projetos dessas linguagens) e a hora. As cores seguem o tema e mudam sozinhas quando usas o `/tema`. Noutros perfis do iTerm2 usa as 16 cores desse perfil.
+
+![O prompt do Powerlevel10k nos três temas](docs/prompt-powerlevel10k.jpg)
+
+O instalador põe duas linhas no fim do teu `~/.zshrc`, depois do teu `~/.p10k.zsh`, por isso este estilo passa a mandar. Para voltares ao teu estilo antigo, apaga essas duas linhas (começam por `# temas-claude-code`) ou corre o `desinstalar.command`.
+
 ## Ajustes
 
 - **Barra das abas igual às imagens:** em **iTerm2 → Settings → Appearance → General**, põe **Theme** em **Minimal**. Depois, em **Appearance → Tabs**, desliga **Stretch tabs to fill bar**. A barra de cima fica com a cor escura do terminal, e cada aba fica pequena, com a cor do tema. São opções do iTerm2 inteiro, por isso o instalador não as muda por ti.
@@ -130,6 +136,7 @@ fonte/                  a letra JetBrains Mono Nerd Font (licença OFL)
 claude-code/themes/     as cores do Claude Code (um arquivo por tema)
 claude-code/commands/   os comandos /tema e /fundo
 iterm2/                 os três perfis do iTerm2
+powerlevel10k/          o estilo do prompt do Powerlevel10k
 imagens/                os fundos, cada um com o prompt num .txt ao lado
 docs/                   as imagens deste README
 ```
@@ -141,6 +148,7 @@ docs/                   as imagens deste README
 - Para mudar a janela, o `/tema` e o `/fundo` usam os códigos próprios do iTerm2 (`SetProfile` e `SetBackgroundImageFile`), enviados para a janela onde o Claude Code está aberto.
 - O `/fundo` guarda a imagem de cada tema em `~/.claude/temas-fundos.txt` e reescreve o arquivo dos perfis com essas imagens. O iTerm2 nota a mudança e atualiza os perfis sozinho.
 - O "Claude · Último" é um segundo perfil dinâmico, `claude-ultimo.json`, que só diz de que tema herda tudo (`Dynamic Profile Parent Name`).
+- O prompt do Powerlevel10k descobre o tema da aba como o `/fundo`: o último `/tema` desta aba (guardado em `~/.claude/.tema-por-aba/`), senão o perfil com que a aba abriu. Antes de cada prompt, se o tema mudou, troca as cores; o Powerlevel10k vê a mudança e redesenha sozinho.
 
 ## Créditos
 

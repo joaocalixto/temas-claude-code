@@ -5,6 +5,13 @@ rm -f "$ITERM/claude-temas.json" "$ITERM/claude-cidade-pixel.json" "$ITERM/claud
 rm -f "$HOME/.claude/themes/"{rengoku,lofi-cidades,cidade-pixel,tema-ativo}.json
 rm -f "$HOME/.claude/commands/"{tema,fundo,tema-teste}.md "$HOME/.claude/temas-fundos.txt"
 rm -rf "$HOME/.claude/.tema-por-aba"
+# tira o estilo do Powerlevel10k do ~/.zshrc (volta o teu ~/.p10k.zsh)
+ZSHRC="${ZDOTDIR:-$HOME}/.zshrc"
+if [ -f "$ZSHRC" ] && grep -q 'powerlevel10k/p10k-temas.zsh' "$ZSHRC"; then
+  tmp="$HOME/.zshrc-temas.$$.tmp"
+  grep -v -e '# temas-claude-code: estilo do Powerlevel10k' -e 'powerlevel10k/p10k-temas.zsh' "$ZSHRC" > "$tmp"
+  cat "$tmp" > "$ZSHRC" && rm -f "$tmp"
+fi
 # se o Claude Code estava num destes temas, volta ao tema escuro normal
 if command -v osascript >/dev/null 2>&1 && [ -f "$HOME/.claude/settings.json" ]; then
   ARQ="$HOME/.claude/settings.json" osascript -l JavaScript >/dev/null 2>&1 <<'JS'
@@ -20,5 +27,6 @@ fi
 echo ""
 echo "  Pronto, tudo removido."
 echo "  O Claude Code voltou ao tema escuro normal (podes escolher outro em /theme)."
+echo "  O prompt do Powerlevel10k volta ao teu estilo numa aba nova."
 echo "  No iTerm2, se um perfil \"Claude · ...\" era o padrão, escolhe outro em Settings > Profiles."
 echo ""

@@ -107,6 +107,12 @@ Inside Claude Code:
 
 **In Claude Code:** the colors of Claude, the box you type in, permission prompts, plan mode, errors, warnings, and added and removed lines in code.
 
+**In the Powerlevel10k prompt** (only if you already use it): colored blocks with the folder, git, ✔ or ✘ for the last command, how long it took (from 3 seconds up), the Java or Node version (only inside projects in those languages) and the time. The colors follow the theme and change on their own when you use `/tema`. In other iTerm2 profiles it uses that profile's 16 colors.
+
+![The Powerlevel10k prompt in the three themes](docs/prompt-powerlevel10k.jpg)
+
+The installer adds two lines at the end of your `~/.zshrc`, after your `~/.p10k.zsh`, so this style takes over. To go back to your old style, delete those two lines (they start with `# temas-claude-code`) or run `desinstalar.command`.
+
 ## Tweaks
 
 - **Make the tab bar look like the pictures:** in **iTerm2 → Settings → Appearance → General**, set **Theme** to **Minimal**. Then, in **Appearance → Tabs**, turn off **Stretch tabs to fill bar**. The bar at the top takes the terminal's dark color, and each tab stays small, in its theme color. These are iTerm2-wide settings, so the installer doesn't change them for you.
@@ -132,6 +138,7 @@ fonte/                  the JetBrains Mono Nerd Font (OFL license)
 claude-code/themes/     the Claude Code colors (one file per theme)
 claude-code/commands/   the /tema and /fundo commands
 iterm2/                 the three iTerm2 profiles
+powerlevel10k/          the Powerlevel10k prompt style
 imagens/                the backgrounds, each with its prompt in a .txt next to it
 docs/                   the images in this README
 ```
@@ -143,6 +150,7 @@ docs/                   the images in this README
 - To change the window, `/tema` and `/fundo` use iTerm2's own codes (`SetProfile` and `SetBackgroundImageFile`), sent to the window where Claude Code is open.
 - `/fundo` stores each theme's image in `~/.claude/temas-fundos.txt` and rewrites the profiles file with those images. iTerm2 notices the change and updates the profiles on its own.
 - "Claude · Último" is a second dynamic profile, `claude-ultimo.json`, that only says which theme it inherits everything from (`Dynamic Profile Parent Name`).
+- The Powerlevel10k prompt finds the tab's theme the same way `/fundo` does: the last `/tema` in this tab (saved in `~/.claude/.tema-por-aba/`), otherwise the profile the tab opened with. Before each prompt, if the theme changed, it swaps the colors; Powerlevel10k notices and redraws on its own.
 
 ## Credits
 
