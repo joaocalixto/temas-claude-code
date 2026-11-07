@@ -33,6 +33,26 @@ else
   padrao="  3. O perfil \"$ULTIMO_NOME\" ficou como padrão do iTerm2: as abas e janelas novas
      abrem com o último tema e fundo que escolheste."
 fi
+# estilo do Powerlevel10k: só se o usas. Liga o p10k-temas.zsh no fim do ~/.zshrc
+# (depois do teu ~/.p10k.zsh, para ele mandar). Correr de novo não repete a linha.
+ZSHRC="${ZDOTDIR:-$HOME}/.zshrc"
+P10K_ARQ="$PASTA/powerlevel10k/p10k-temas.zsh"
+if [ -f "$ZSHRC" ] && grep -v 'p10k-temas.zsh' "$ZSHRC" | grep -q 'powerlevel10k'; then
+  tmp="$HOME/.claude/.zshrc-temas.$$.tmp"
+  grep -v -e '# temas-claude-code: estilo do Powerlevel10k' -e 'powerlevel10k/p10k-temas.zsh' "$ZSHRC" > "$tmp" || true
+  {
+    cat "$tmp"
+    echo "# temas-claude-code: estilo do Powerlevel10k (apaga esta linha e a de baixo para voltares ao teu estilo)"
+    echo "[[ -r \"$P10K_ARQ\" ]] && source \"$P10K_ARQ\""
+  } > "$ZSHRC"   # escreve por cima (não troca o arquivo), para manter atalhos e permissões
+  rm -f "$tmp"
+  prompt="  4. Prompt do Powerlevel10k: abre uma aba nova para ver o estilo dos temas.
+     As cores seguem o tema e mudam sozinhas com o /tema."
+else
+  prompt="  4. Não encontrei o Powerlevel10k no teu ~/.zshrc, por isso não mudei o prompt.
+     Se o instalares depois, corre o instalar.command de novo."
+fi
+
 for c in fundo tema tema-teste; do
   sed "s#__PASTA__#$PASTA#g" "$PASTA/claude-code/commands/$c.md" > "$HOME/.claude/commands/$c.md"
 done
@@ -46,6 +66,7 @@ echo "  2. Claude Code: fecha e abre de novo e escreve /tema pixel (ou lofi, ou 
 echo "     O /tema muda o iTerm2 e o Claude Code ao mesmo tempo. Para só o fundo: /fundo lista"
 echo "     Para ver tudo o que o tema pinta: /tema-teste"
 echo "$padrao"
+echo "$prompt"
 echo ""
 echo "  Não apagues nem mudes esta pasta de lugar: os fundos são lidos daqui."
 echo "  Se a mudares, corre o instalar.command outra vez."
