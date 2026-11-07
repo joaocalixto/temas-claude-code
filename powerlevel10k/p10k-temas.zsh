@@ -213,7 +213,7 @@ functions -M _temas_git_formato 2>/dev/null
     newline
   )
 
-  # letra JetBrains Mono Nerd Font (vem na pasta fonte/)
+  # letra IBM Plex Mono Nerd Font (vem na pasta fonte/)
   typeset -g POWERLEVEL9K_MODE=nerdfont-v3
   typeset -g POWERLEVEL9K_ICON_PADDING=none
   typeset -g POWERLEVEL9K_ICON_BEFORE_CONTENT=
