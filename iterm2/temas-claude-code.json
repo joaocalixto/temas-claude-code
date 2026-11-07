@@ -188,7 +188,7 @@
         "Color Space": "sRGB"
       },
       "Dynamic Profile Parent Name": "Default",
-      "Normal Font": "JetBrainsMonoNFM-Regular 14",
+      "Normal Font": "BlexMonoNFM 14",
       "Use Non-ASCII Font": false
     },
     {
@@ -379,7 +379,7 @@
         "Color Space": "sRGB"
       },
       "Dynamic Profile Parent Name": "Default",
-      "Normal Font": "JetBrainsMonoNFM-Regular 14",
+      "Normal Font": "BlexMonoNFM 14",
       "Use Non-ASCII Font": false
     },
     {
@@ -570,7 +570,7 @@
         "Color Space": "sRGB"
       },
       "Dynamic Profile Parent Name": "Default",
-      "Normal Font": "JetBrainsMonoNFM-Regular 14",
+      "Normal Font": "BlexMonoNFM 14",
       "Use Non-ASCII Font": false
     }
   ]

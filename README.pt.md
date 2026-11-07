@@ -100,7 +100,7 @@ Dentro do Claude Code:
 - **"Claude · Último"**, um perfil extra que copia o último tema que escolheste com o `/tema`.
 - **As 16 cores do terminal**, as que o Git e os outros programas usam.
 - **Cor do cursor e da seleção.**
-- **Letra: JetBrains Mono Nerd Font**, a mesma das imagens. Vem na pasta `fonte/` e o instalador põe-na no teu Mac. Tem os ícones que prompts como o Powerlevel10k e o Oh My Zsh usam.
+- **Letra: IBM Plex Mono** (na versão Nerd Font, chamada "BlexMono"), uma letra sóbria. Vem na pasta `fonte/` e o instalador põe-na no teu Mac. Tem os ícones que prompts como o Powerlevel10k e o Oh My Zsh usam.
 - O resto vem do teu perfil **Default**.
 
 **No Claude Code:** as cores do Claude, da caixa onde escreves, dos pedidos de permissão, do modo plano, dos erros, dos avisos e das linhas novas e apagadas no código.
@@ -134,7 +134,7 @@ tema.sh                 o que o /tema corre
 fundo.sh                o que o /fundo corre
 lembrar.sh              grava o fundo de cada tema e o perfil "Claude · Último"
 amostra.sh              a amostra de cores que o /tema-teste mostra
-fonte/                  a letra JetBrains Mono Nerd Font (licença OFL)
+fonte/                  a letra IBM Plex Mono / BlexMono Nerd Font (licença OFL)
 claude-code/themes/     as cores do Claude Code (um arquivo por tema)
 claude-code/commands/   os comandos /tema e /fundo
 iterm2/                 os três perfis do iTerm2
