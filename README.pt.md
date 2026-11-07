@@ -111,6 +111,8 @@ Dentro do Claude Code:
 
 O instalador põe duas linhas no fim do teu `~/.zshrc`, depois do teu `~/.p10k.zsh`, por isso este estilo passa a mandar. Para voltares ao teu estilo antigo, apaga essas duas linhas (começam por `# temas-claude-code`) ou corre o `desinstalar.command`.
 
+Há também um estilo **sóbrio**: tons de azul-escuro com letra branca, igual em todos os temas. Para trocar, escreve no terminal `prompt-estilo sobrio` (e `prompt-estilo tema` para voltar). Vale logo a partir do próximo prompt, em todas as abas.
+
 ## Ajustes
 
 - **Barra das abas igual às imagens:** em **iTerm2 → Settings → Appearance → General**, põe **Theme** em **Minimal**. Depois, em **Appearance → Tabs**, desliga **Stretch tabs to fill bar**. A barra de cima fica com a cor escura do terminal, e cada aba fica pequena, com a cor do tema. São opções do iTerm2 inteiro, por isso o instalador não as muda por ti.
