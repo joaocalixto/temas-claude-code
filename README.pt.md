@@ -100,7 +100,7 @@ Dentro do Claude Code:
 - **"Claude · Último"**, um perfil extra que copia o último tema que escolheste com o `/tema`.
 - **As 16 cores do terminal**, as que o Git e os outros programas usam.
 - **Cor do cursor e da seleção.**
-- **Letra: JetBrains Mono Nerd Font**, a mesma das imagens. Vem na pasta `fonte/` e o instalador põe-na no teu Mac. Tem os ícones que prompts como o Powerlevel10k e o Oh My Zsh usam.
+- **Letra: IBM Plex Mono** (na versão Nerd Font, chamada "BlexMono"), uma letra sóbria. Vem na pasta `fonte/` e o instalador põe-na no teu Mac. Tem os ícones que prompts como o Powerlevel10k e o Oh My Zsh usam.
 - O resto vem do teu perfil **Default**, menos o atalho de janela (Hotkey Window): os temas vêm sem atalho, para não brigarem com o atalho que já tens no Default.
 
 **No Claude Code:** as cores do Claude, da caixa onde escreves, dos pedidos de permissão, do modo plano, dos erros, dos avisos e das linhas novas e apagadas no código.
@@ -110,6 +110,8 @@ Dentro do Claude Code:
 ![O prompt do Powerlevel10k nos três temas](docs/prompt-powerlevel10k.jpg)
 
 O instalador põe duas linhas no fim do teu `~/.zshrc`, depois do teu `~/.p10k.zsh`, por isso este estilo passa a mandar. Para voltares ao teu estilo antigo, apaga essas duas linhas (começam por `# temas-claude-code`) ou corre o `desinstalar.command`.
+
+Há também um estilo **sóbrio**: tons de azul-escuro com letra branca, igual em todos os temas. Para trocar, escreve no terminal `prompt-estilo sobrio` (e `prompt-estilo tema` para voltar). Vale logo a partir do próximo prompt, em todas as abas.
 
 ## Ajustes
 
@@ -132,7 +134,7 @@ tema.sh                 o que o /tema corre
 fundo.sh                o que o /fundo corre
 lembrar.sh              grava o fundo de cada tema e o perfil "Claude · Último"
 amostra.sh              a amostra de cores que o /tema-teste mostra
-fonte/                  a letra JetBrains Mono Nerd Font (licença OFL)
+fonte/                  a letra IBM Plex Mono / BlexMono Nerd Font (licença OFL)
 claude-code/themes/     as cores do Claude Code (um arquivo por tema)
 claude-code/commands/   os comandos /tema e /fundo
 iterm2/                 os três perfis do iTerm2

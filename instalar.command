@@ -11,7 +11,7 @@ fi
 
 mkdir -p "$ITERM" "$HOME/.claude/themes" "$HOME/.claude/commands"
 
-# fonte JetBrains Mono Nerd Font (com os ícones do prompt), só se ainda não existir
+# letra IBM Plex Mono, versão Nerd Font "BlexMono" (com os ícones do prompt), só se ainda não existir
 mkdir -p "$HOME/Library/Fonts"
 for f in "$PASTA"/fonte/*.ttf; do
   [ -f "$HOME/Library/Fonts/$(basename "$f")" ] || cp "$f" "$HOME/Library/Fonts/"

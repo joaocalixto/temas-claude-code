@@ -102,7 +102,7 @@ Inside Claude Code:
 - **"Claude · Último"**, an extra profile that copies the last theme you picked with `/tema`.
 - **The 16 terminal colors**, the ones Git and other programs use.
 - **Cursor and selection colors.**
-- **Font: JetBrains Mono Nerd Font**, the same one in the pictures. It comes in the `fonte/` folder and the installer adds it to your Mac. It has the icons that prompts like Powerlevel10k and Oh My Zsh use.
+- **Font: IBM Plex Mono** (the Nerd Font version, called "BlexMono"), a sober typeface. It comes in the `fonte/` folder and the installer adds it to your Mac. It has the icons that prompts like Powerlevel10k and Oh My Zsh use.
 - Everything else comes from your **Default** profile, except the Hotkey Window shortcut: the themes come without one, so they don't clash with a shortcut you already set on Default.
 
 **In Claude Code:** the colors of Claude, the box you type in, permission prompts, plan mode, errors, warnings, and added and removed lines in code.
@@ -112,6 +112,8 @@ Inside Claude Code:
 ![The Powerlevel10k prompt in the three themes](docs/prompt-powerlevel10k.jpg)
 
 The installer adds two lines at the end of your `~/.zshrc`, after your `~/.p10k.zsh`, so this style takes over. To go back to your old style, delete those two lines (they start with `# temas-claude-code`) or run `desinstalar.command`.
+
+There's also a **sober** style: dark blue shades with white text, the same in every theme. To switch, type `prompt-estilo sobrio` in the terminal (and `prompt-estilo tema` to go back). It takes effect from the next prompt, in every tab.
 
 ## Tweaks
 
@@ -134,7 +136,7 @@ tema.sh                 what /tema runs
 fundo.sh                what /fundo runs
 lembrar.sh              saves each theme's background and the "Claude · Último" profile (*lembrar* = remember)
 amostra.sh              the color sample /tema-teste shows (*amostra* = sample)
-fonte/                  the JetBrains Mono Nerd Font (OFL license)
+fonte/                  the IBM Plex Mono / BlexMono Nerd Font (OFL license)
 claude-code/themes/     the Claude Code colors (one file per theme)
 claude-code/commands/   the /tema and /fundo commands
 iterm2/                 the three iTerm2 profiles

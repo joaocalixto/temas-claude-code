@@ -3,8 +3,11 @@
 # Blocos coloridos em duas linhas:
 #   pasta  git                 ✔/✘  tempo do comando  Java  Node  hora
 #   ❯
-# As cores seguem o tema do iTerm2 (Rengoku, Lofi Cidades, Cidade Pixel) e mudam sozinhas
-# quando usas o /tema. Em qualquer outro perfil usa as 16 cores desse perfil.
+# Dois estilos de cores (troca com: prompt-estilo tema | prompt-estilo sobrio):
+#   tema   - as cores seguem o tema do iTerm2 (Rengoku, Lofi Cidades, Cidade Pixel) e mudam
+#            sozinhas quando usas o /tema. Noutro perfil usa as 16 cores desse perfil.
+#   sobrio - azul-escuro com letra branca, igual em todos os temas.
+# A escolha fica em ~/.claude/temas-prompt.txt.
 #
 # O instalar.command liga este arquivo no fim do ~/.zshrc (depois do teu ~/.p10k.zsh),
 # por isso ele manda no estilo. Para voltares ao teu estilo antigo, apaga essas duas
@@ -95,15 +98,62 @@ function _temas_p10k_cores() {
   # ❯ na linha de baixo: cor do tema, vermelho se o último comando falhou
   typeset -g POWERLEVEL9K_PROMPT_CHAR_OK_{VIINS,VICMD,VIVIS,VIOWR}_FOREGROUND=$acc
   typeset -g POWERLEVEL9K_PROMPT_CHAR_ERROR_{VIINS,VICMD,VIVIS,VIOWR}_FOREGROUND=$erro
+  typeset -g POWERLEVEL9K_DIR_ANCHOR_BOLD=true
+
+  [[ $2 == sobrio ]] || return 0
+  # estilo sóbrio: tons de azul-escuro, letra branca, sem negrito
+  local azul1='#1e3a5f' azul2='#172f4d' azul3='#10233a' azul4='#28507f' branco='#ffffff' vermelho='#8b2232'
+  typeset -g POWERLEVEL9K_DIR_BACKGROUND=$azul1
+  typeset -g POWERLEVEL9K_DIR_{FOREGROUND,SHORTENED_FOREGROUND,ANCHOR_FOREGROUND}=$branco
+  typeset -g POWERLEVEL9K_DIR_NOT_WRITABLE_BACKGROUND=$vermelho
+  typeset -g POWERLEVEL9K_DIR_NOT_WRITABLE_{FOREGROUND,SHORTENED_FOREGROUND,ANCHOR_FOREGROUND}=$branco
+  typeset -g POWERLEVEL9K_DIR_ANCHOR_BOLD=false
+  typeset -g POWERLEVEL9K_VCS_{CLEAN,UNTRACKED,LOADING}_BACKGROUND=$azul2
+  typeset -g POWERLEVEL9K_VCS_{MODIFIED,CONFLICTED}_BACKGROUND=$azul4    # um azul mais claro quando há mudanças
+  typeset -g POWERLEVEL9K_VCS_{CLEAN,UNTRACKED,MODIFIED,CONFLICTED,LOADING}_FOREGROUND=$branco
+  typeset -g _temas_git_txt="%F{$branco}" _temas_git_conflito="%F{#ff8a8a}"
+  typeset -g POWERLEVEL9K_STATUS_{OK,OK_PIPE}_FOREGROUND=$branco
+  typeset -g POWERLEVEL9K_STATUS_{OK,OK_PIPE}_BACKGROUND=$azul3
+  typeset -g POWERLEVEL9K_STATUS_{ERROR,ERROR_SIGNAL,ERROR_PIPE}_FOREGROUND=$branco
+  typeset -g POWERLEVEL9K_STATUS_{ERROR,ERROR_SIGNAL,ERROR_PIPE}_BACKGROUND=$vermelho
+  typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND=$branco
+  typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_BACKGROUND=$azul2
+  typeset -g POWERLEVEL9K_{JAVA,NODE}_VERSION_FOREGROUND=$branco
+  typeset -g POWERLEVEL9K_{JAVA,NODE}_VERSION_BACKGROUND=$azul3
+  typeset -g POWERLEVEL9K_TIME_FOREGROUND=$branco
+  typeset -g POWERLEVEL9K_TIME_BACKGROUND=$azul1
+  typeset -g POWERLEVEL9K_PROMPT_CHAR_OK_{VIINS,VICMD,VIVIS,VIOWR}_FOREGROUND=$branco
+  typeset -g POWERLEVEL9K_PROMPT_CHAR_ERROR_{VIINS,VICMD,VIVIS,VIOWR}_FOREGROUND='#ff8a8a'
+}
+
+# o estilo escolhido em ~/.claude/temas-prompt.txt ("tema" se não houver)
+function _temas_p10k_estilo() {
+  emulate -L zsh
+  local f=$HOME/.claude/temas-prompt.txt e=tema
+  [[ -r $f ]] && e="$(<$f)" && e=${e%%$'\n'*}
+  [[ $e == (tema|sobrio) ]] || e=tema
+  typeset -g REPLY=$e
+}
+
+# prompt-estilo tema | sobrio  -> troca o estilo das cores (vale já no próximo prompt, em todas as abas)
+function prompt-estilo() {
+  emulate -L zsh
+  case ${1:l} in
+    tema)               print -r -- tema   >| $HOME/.claude/temas-prompt.txt ;;
+    sobrio|sóbrio|azul) print -r -- sobrio >| $HOME/.claude/temas-prompt.txt ;;
+    *) _temas_p10k_estilo; print -r -- "Estilo atual: $REPLY. Usa: prompt-estilo tema | prompt-estilo sobrio"; return ;;
+  esac
 }
 
 # Antes de cada prompt: se o tema mudou (por exemplo com o /tema), troca as cores.
 # O Powerlevel10k vê que as variáveis mudaram e redesenha sozinho.
 function _temas_p10k_precmd() {
+  local estilo
+  _temas_p10k_estilo; estilo=$REPLY
   _temas_p10k_tema
-  [[ $REPLY == "$_temas_p10k_atual" ]] && return
-  typeset -g _temas_p10k_atual=$REPLY
-  _temas_p10k_cores "$REPLY"
+  [[ "$estilo|$REPLY" == "$_temas_p10k_atual" ]] && return
+  typeset -g _temas_p10k_atual="$estilo|$REPLY"
+  _temas_p10k_cores "$REPLY" "$estilo"
 }
 
 # Mostra o git (o mesmo formato do estilo "rainbow" do Powerlevel10k).
@@ -163,7 +213,7 @@ functions -M _temas_git_formato 2>/dev/null
     newline
   )
 
-  # letra JetBrains Mono Nerd Font (vem na pasta fonte/)
+  # letra IBM Plex Mono Nerd Font (vem na pasta fonte/)
   typeset -g POWERLEVEL9K_MODE=nerdfont-v3
   typeset -g POWERLEVEL9K_ICON_PADDING=none
   typeset -g POWERLEVEL9K_ICON_BEFORE_CONTENT=
@@ -197,7 +247,6 @@ functions -M _temas_git_formato 2>/dev/null
   typeset -g POWERLEVEL9K_PROMPT_CHAR_LEFT_{LEFT,RIGHT}_WHITESPACE=
 
   # pasta: encurta as pastas do meio, mostra inteira a raiz do projeto
-  typeset -g POWERLEVEL9K_DIR_ANCHOR_BOLD=true
   typeset -g POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_unique
   typeset -g POWERLEVEL9K_SHORTEN_DELIMITER=
   typeset -g POWERLEVEL9K_SHORTEN_FOLDER_MARKER='(.git|package.json|pom.xml|build.gradle|build.gradle.kts|project.godot|.shorten_folder_marker)'
@@ -247,9 +296,11 @@ functions -M _temas_git_formato 2>/dev/null
   typeset -g POWERLEVEL9K_DISABLE_HOT_RELOAD=false
 
   # cores do tema desta aba
+  local estilo
+  _temas_p10k_estilo; estilo=$REPLY
   _temas_p10k_tema
-  typeset -g _temas_p10k_atual=$REPLY
-  _temas_p10k_cores "$REPLY"
+  typeset -g _temas_p10k_atual="$estilo|$REPLY"
+  _temas_p10k_cores "$REPLY" "$estilo"
 
   (( ! $+functions[p10k] )) || p10k reload
 }
